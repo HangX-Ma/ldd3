@@ -3,6 +3,9 @@
 #include <linux/module.h>
 #include <linux/moduleparam.h>
 
+#undef pr_fmt
+#define pr_fmt(fmt) "%s: " fmt, __func__
+
 static int   mint    = 9;
 static char *mchar   = "char";
 static int   marr[2] = {0, 1};
