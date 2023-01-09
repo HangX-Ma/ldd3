@@ -1,5 +1,4 @@
 obj-m := char_device.o
-
 KERNELDIR ?= /lib/modules/$(shell uname -r)/build
 
 all default: modules
