@@ -12,6 +12,7 @@ qemu_rootfs            # Directory which is shared between host and QEMU via NFS
 ├── initramfs          # Directory containing files to build initramfs image.
 ├── initramfs.cpio.gz
 ├── kernel
+├── LDD-Development
 ├── qemu               # The QEMU source files, git cloned from official repo
 └── qemu_run.sh        # QEMU launching script
 ```
@@ -42,7 +43,9 @@ qemu-5.2.0-x86_64 -enable-kvm \
         -append 'console=ttyS0' \
         -nographic \
         -device e1000,netdev=dev0,mac='00:00:00:01:00:01' \
+        # Choose one of the following option
         -netdev tap,ifname=tap0,id=dev0,script=no,downscript=no,vhost=no
+        -netdev user,id=host_net,hostfwd=tcp::7023-:23
 ```
 
 #### Virtual Network Adapter

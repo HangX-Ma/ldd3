@@ -122,5 +122,5 @@ module_exit(char_device_exit);
 
 MODULE_AUTHOR("HangX-Ma");
 MODULE_LICENSE("Dual MIT/GPL");
-MODULE_DESCRIPTION("A module create dummy character device");
+MODULE_DESCRIPTION("A module creates dummy character device");
 MODULE_INFO(modparams, "05-char_device");
