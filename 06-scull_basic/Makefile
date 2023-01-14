@@ -1,7 +1,7 @@
 obj-m := scull.o
 scull-objs := scull_basic.o scull_syscall.o
 
-export BUILD_TYPE = host
+export BUILDHOST = FALSE
 
 KERNELDIR_QEMU ?= $(HOME)/linux
 KERNELDIR_HOST ?= /lib/modules/$(shell uname -r)/build
@@ -9,7 +9,7 @@ KERNELDIR_HOST ?= /lib/modules/$(shell uname -r)/build
 all default: modules
 install: modules_install
 
-ifeq ($(BUILDHOST),host)
+ifeq ($(BUILDHOST),TRUE)
 KERNELDIR ?= $(KERNELDIR_HOST)
 desc:
 	@echo "\033[32m build on $(shell uname -ior)\033[0m"
