@@ -15,15 +15,20 @@
 #define pr_fmt(fmt) "%s " fmt, __func__
 
 /* scull module properties */
+#ifndef SCULL_NR_DEVS
 #define SCULL_NR_DEVS       3
+#endif
+
+#ifndef SCULL_MODULE_NAME
 #define SCULL_MODULE_NAME   "scull"
+#endif
 
 #ifndef SCULL_QUANTUM
-#define SCULL_QUANTUM 400
+#define SCULL_QUANTUM       400
 #endif
 
 #ifndef SCULL_QSET
-#define SCULL_QSET    10
+#define SCULL_QSET          10
 #endif
 
 struct scull_qset {

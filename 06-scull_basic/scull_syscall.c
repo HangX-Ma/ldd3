@@ -201,3 +201,27 @@ int scull_trim(struct scull_dev *dev) {
 
     return 0;
 }
+
+loff_t scull_llseek(struct file *filp, loff_t offset, int whence)
+{
+    struct scull_dev *dev = filp->private_data;
+    loff_t newpos;
+
+    switch(whence) {
+        case 0: /* SEEK_SET */
+            newpos = offset;
+            break;
+        case 1: /* SEEK_CUR */
+            newpos = filp->f_pos + offset;
+            break;
+        case 2: /* SEEK_END */
+            newpos = dev->size + offset;
+            break;
+        default: /* can't happen */
+            return -EINVAL;
+    }
+    if (newpos < 0) return -EINVAL;
+    filp->f_pos = newpos;
+    
+    return newpos;
+}

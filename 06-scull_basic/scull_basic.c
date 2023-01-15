@@ -10,11 +10,12 @@ static dev_t scull_dev_num;
 static struct scull_dev *scull_devs;
 
 static const struct file_operations scull_fops = {
-    .owner  = THIS_MODULE,
-    .read   = scull_read,
-    .write  = scull_write,
-    .open   = scull_open,
-    .release = scull_release
+    .owner   = THIS_MODULE,
+    .read    = scull_read,
+    .write   = scull_write,
+    .open    = scull_open,
+    .llseek  = scull_llseek,
+    .release = scull_release,
 };
 
 
