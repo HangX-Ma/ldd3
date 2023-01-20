@@ -185,4 +185,4 @@ module_exit(jiq_exit);
 MODULE_AUTHOR("HangX-Ma");
 MODULE_LICENSE("Dual MIT/GPL");
 MODULE_DESCRIPTION("A module about time, delay and deffer work, focusing on shared queue.");
-MODULE_INFO(modparams, "11-jiq");
+MODULE_INFO(modparams, "12-jiq");
